@@ -10,3 +10,10 @@ Basic images
 - wireless deactivation
 - desktop version
 - latest debian version
+
+Core images
+===========
+
+- get last jade-core release from ftp
+- install when the image is created and not at first boot
+- make sure git and svn users are not in sudoers
