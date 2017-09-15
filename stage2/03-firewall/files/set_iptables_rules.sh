@@ -11,8 +11,7 @@ iptables -t filter -X
 # All connections are forbidden
 iptables -t filter -P INPUT DROP
 iptables -t filter -P FORWARD DROP
-iptables -t filter -P OUTPUT DROP
-
+iptables -t filter -P OUTPUT ACCEPT # to make FTP client works
 # ---------------------------------------------------------------
 
 # Keep ESTABLISHED connections
@@ -43,4 +42,8 @@ iptables -t filter -A OUTPUT -p tcp --dport 80 -j ACCEPT
 
 # Allow rpi-update OUTPUT (use https)
 iptables -t filter -A OUTPUT -p tcp --dport 443 -j ACCEPT
+
 # ---------------------------------------------------------------
+
+# Allow jade-core In connection
+iptables -t filter -A INPUT -p tcp --dport 4000 -j ACCEPT

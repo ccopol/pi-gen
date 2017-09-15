@@ -12,7 +12,7 @@ systemctl enable configure_iptables
 EOF
 
   # NOTE: if there are other applications then add rules here
-if [ "${USE_SSH}" = "1" ]; then
+  if [ "${USE_SSH}" = "1" ]; then
     echo "Authorize SSH in iptables"
     echo "# SSH In/Out" >> ${ROOTFS_DIR}/usr/bin/set_iptables_rules.sh
     echo "iptables -t filter -A INPUT -p tcp --dport 22 -j ACCEPT" >> ${ROOTFS_DIR}/usr/bin/set_iptables_rules.sh
